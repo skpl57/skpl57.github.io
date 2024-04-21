@@ -5,8 +5,8 @@ $(document).ready(
         $(".pa").click(
             function(){
                     $("#tlo").fadeIn(500).animate({"width":"100vw","height":"100vh","left":"0%","top":"0%","border-radius":"0"},1000);
-                    $(".flaga").delay(1500).animate({"opacity":"1","width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000);
-                    $("#gp").delay(1500).animate({"right":"5vw"},0).animate({"opacity":"1"},1000);
+                    $(".flaga").delay(1500).fadeIn(200).animate({"opacity":"1","width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000);
+                    $("#gp").delay(1500).fadeIn(0).animate({"left":"85vw"},0).animate({"opacity":"1"},1000);
                     $("#wroc").delay(1500).animate({"top":"92.5vh"},1000);
                     flaga=true
                     }
@@ -15,8 +15,8 @@ $(document).ready(
             function(){
                 $("#tlo").fadeIn(500).animate({"width":"100vw","height":"100vh","left":"0%","top":"0%","border-radius":"0"},1000);
                 $(".godlo").delay(1500).fadeIn(200).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px","opacity":"1"},1000);
-                $("#fp").delay(1500).animate({"left":"5vw"},0).animate({"opacity":"1"},1000);    
-                $("#kp").delay(1500).animate({"right":"5vw"},0).animate({"opacity":"1"},1000);
+                $("#fp").delay(1500).fadeIn(0).animate({"left":"5vw"},0).animate({"opacity":"1"},1000);    
+                $("#kp").delay(1500).fadeIn(0).animate({"right":"5vw"},0).animate({"opacity":"1"},1000);
                 $("#wroc").delay(1500).animate({"top":"92.5vh"},1000);
                 flaga=false
             }
@@ -24,8 +24,8 @@ $(document).ready(
         $(".pc").click(
             function(){
                 $("#tlo").fadeIn(500).animate({"width":"100vw","height":"100vh","left":"0%","top":"0%","border-radius":"0"},1000);
-                $(".kon").delay(1500).animate({"opacity":"1"},200).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000);
-                $("#gp").delay(1500).animate({"left":"5vw"},0).animate({"opacity":"1"},1000);
+                $(".kon").delay(1500).fadeIn(200).animate({"opacity":"1"},200).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000);
+                $("#gp").delay(1500).fadeIn(0).animate({"left":"5vw"},0).animate({"opacity":"1"},1000);
                 $("#wroc").delay(1500).animate({"top":"92.5vh"},1000);
                 flaga=false
             }
@@ -34,8 +34,8 @@ $(document).ready(
             function(){
                 $("#fp,#kp").fadeOut(200);
                 $("#gp").fadeIn(0).animate({"left":"85vw","top":"120vh","opacity":"1"},0).animate({"top":"80vh"},1000)
-                $(".godlo").animate({"left":"160vw","opacity":"0","width":"10vw","height":"10vh"},1000).animate({"left":"50%","margin-left":"-5vw","top":"50%"},0)
-                $(".flaga").animate({"left":"-30vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
+                $(".godlo").fadeIn(0).animate({"left":"160vw","opacity":"0","width":"10vw","height":"10vh"},1000).animate({"left":"50%","margin-left":"-5vw","top":"50%"},0)
+                $(".flaga").fadeIn(0).animate({"left":"-30vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
                 flaga=true
             }
         );
@@ -46,12 +46,12 @@ $(document).ready(
                 $("#fp").animate({"left":"5vw"},0)
                 $("#fp,#kp").animate({"top":"120vh","opacity":"1"},0).fadeIn(0).animate({"top":"80vh"},1000)
             if (flaga==true){
-                $(".flaga").animate({"left":"-60vw","opacity":"0","width":"10vw","height":"10vh"},1000).animate({"left":"50%","margin-left":"-5vw","top":"50%"},0)
-                $(".godlo").animate({"left":"130vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
+                $(".flaga").fadeIn(0).animate({"left":"-60vw","opacity":"0","width":"10vw","height":"10vh"},1000).animate({"left":"50%","margin-left":"-5vw","top":"50%"},0)
+                $(".godlo").fadeIn(0).animate({"left":"130vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
                 flaga=false}
             else{
-                $(".kon").animate({"left":"160vw","opacity":"0","width":"10vw","height":"10vh"},1000).animate({"left":"50%","margin-left":"-5vw","top":"50%"},0)
-                $(".godlo").animate({"left":"-30vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
+                $(".kon").fadeIn(0).animate({"left":"160vw","opacity":"0","width":"10vw","height":"10vh"},1000).animate({"left":"50%","margin-left":"-5vw","top":"50%"},0)
+                $(".godlo").fadeIn(0).animate({"left":"-30vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
             }
             }
         );
@@ -60,15 +60,15 @@ $(document).ready(
                 $("#fp,#kp").fadeOut(200);
                 $("#gp").fadeIn(0).animate({"left":"5vw","top":"120vh","opacity":"1"},0).animate({"top":"80vh"},1000)
                 $(".godlo").animate({"left":"-60vw","opacity":"0","width":"10vw","height":"10vh"},1000).animate({"left":"50%","margin-left":"-5vw","top":"50%"},0)
-                $(".kon").animate({"left":"130vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
+                $(".kon").fadeIn(0).animate({"left":"130vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
                 flaga=false
             }
         );
         $("#wroc").click(
             function(){
-                $(".tekst").animate({"width":"10vw","height":"10vh","left":"50vw","top":"40vh","margin-left":"-5vw"},1000).fadeOut(200);
+                $(".tekst").animate({"width":"10vw","height":"10vh","left":"50%","top":"40vh","margin-left":"-5vw"},1000).fadeOut(200);
                 $("#tlo").delay(1000).animate({"width":"5vw","height":"5vh","left":"45vw","top":"45vh","border-radius":"15px"},1000).fadeOut(200);
-                $("#gp,#fp,#kp").animate({"opacity":"0"},1200); 
+                $("#gp,#fp,#kp").animate({"opacity":"0"},1200).fadeOut(0); 
                 $("#wroc").animate({"top":"110vh"},1200)
           }
         );
