@@ -1,4 +1,5 @@
-*{margin: 0; padding: 0; box-sizing: border-box; font-size: 2.4vh; text-decoration: none; font-family: sans-serif}
+*{margin: 0; padding: 0; box-sizing: border-box; font-size: 2.4vh; text-decoration: none; font-family: sans-serif; }
+#ramka{overflow: hidden; height: 100vh; width: 100vw; background-color: #ff0000;}
 /*-----------------------------------------HEADER-----------------------*/
 header{
     height: 30vh;
@@ -105,15 +106,17 @@ article{
     background-image: url("flaga_pol.png");
     background-position-x: 3vh;
 }
-.ob2{
+.ob2, #big_godlo{
     background-image: url("godlo1.png");
     background-position-x: 5vh;
+    border-radius: 15px;
 }
 .ob3{
     background-image: url("polska1.png");
     filter: drop-shadow(2px 7px 10px black);
     background-position-x: 4vh;
 }
+#big_godlo{background-position-x: 0; width: 46.3vh; height: 54.9vh; position: absolute; background-size: contain; background-repeat: no-repeat; top: 50%; margin-top: -27.5vh; left: 50%; margin-left: -23vh; filter: drop-shadow(3px 2px 10px black); border-radius: 15px; display: none;}
 /*-----------------------------------------FOOTER-----------------------*/
 footer{
     display: flex;
@@ -134,6 +137,16 @@ footer{
     width: 5vw; height: 5vh;
     background-color: rgba(0, 0, 0, 0.452);
     z-index: 2;
+    border-radius: 15px;
+}
+#tajne{
+    display: none;
+    opacity: 0;
+    background-color: red;
+    width: 5vw; height: 5vh;
+    position: absolute;
+    top: 50%; margin-top: -7.5vh;
+    right: 5vw;
     border-radius: 15px;
 }
 .tekst{

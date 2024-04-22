@@ -1,7 +1,12 @@
-let duze=false
 $(document).ready(
     function(){
         let flaga=false
+        $(".przycisk").click(
+            function(){
+                $("#big_godlo").fadeOut(200)
+                $(".ob2").delay(200).animate({"opacity":"1"},200);
+            }
+        )
         $(".pa").click(
             function(){
                     $("#tlo").fadeIn(500).animate({"width":"100vw","height":"100vh","left":"0%","top":"0%","border-radius":"0"},1000);
@@ -50,6 +55,7 @@ $(document).ready(
                 $(".godlo").fadeIn(0).animate({"left":"130vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
                 flaga=false}
             else{
+                $("#tajne").fadeOut(200)
                 $(".kon").fadeIn(0).animate({"left":"160vw","opacity":"0","width":"10vw","height":"10vh"},1000).animate({"left":"50%","margin-left":"-5vw","top":"50%"},0)
                 $(".godlo").fadeIn(0).animate({"left":"-30vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
             }
@@ -62,6 +68,7 @@ $(document).ready(
                 $(".godlo").animate({"left":"-60vw","opacity":"0","width":"10vw","height":"10vh"},1000).animate({"left":"50%","margin-left":"-5vw","top":"50%"},0)
                 $(".kon").fadeIn(0).animate({"left":"130vw","opacity":"1"},0).animate({"width":"50vw","height":"80vh","left":"25vw","top":"10vh","margin":"0px"},1000)
                 flaga=false
+                $("#tajne").fadeIn(200);
             }
         );
         $("#wroc").click(
@@ -70,8 +77,21 @@ $(document).ready(
                 $("#tlo").delay(1000).animate({"width":"5vw","height":"5vh","left":"45vw","top":"45vh","border-radius":"15px"},1000).fadeOut(200);
                 $("#gp,#fp,#kp").animate({"opacity":"0"},1200).fadeOut(0); 
                 $("#wroc").animate({"top":"110vh"},1200)
+                $("#tajne").fadeOut(200)
           }
         );
-        
+             //INNE
+        $(".ob2").click(
+            function(){
+                    $(".ob2").animate({"opacity":"0"},500);
+                    $("#big_godlo").fadeIn(500);
+            }
+        );
+        $("#big_godlo").click(
+            function(){
+                    $("#big_godlo").fadeOut(500);
+                    $(".ob2").animate({"opacity":"1"},500);
+            }
+        );
     }
 );
