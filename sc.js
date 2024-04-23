@@ -98,14 +98,14 @@ $(document).ready(
             function(){
                 $("#klapa").addClass("animacja");
                 $("#g1").delay(1000).animate({"top":"0px"},800);
-                $("#klapa").delay(3000).fadeOut(500)
+                $("#klapa").delay(3000).fadeOut(500);
             }
         );
         $("#strzala").click(
             function(){
                 $(this).addClass("strz").delay(5100).fadeOut(0);
                 $("#g4").delay(5500).animate({"top":"0"},800);
-                $("#dis").delay(6000).fadeOut(500)
+                $("#dis").delay(6000).fadeOut(500);
             }
         );
         $("#waz").click(
@@ -127,7 +127,7 @@ $(document).ready(
                     $("#waz").delay(2500).animate({"top":"110%","left":"0%"},2000).fadeOut(1000);
                     $("#kran").delay(4500).fadeOut(1000);
                 }
-                    else{}
+                    else{waz=false}
             }
         );
     }
