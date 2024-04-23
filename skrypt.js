@@ -103,7 +103,6 @@ $(document).ready(
         $("#zachodnio_pomorskie").click(
             function(){
                 $("#big_polska").animate({"left":"25%","margin-left":"0"},200)
-                $(".ob2").fadeOut(200)
             }
         )
     }
