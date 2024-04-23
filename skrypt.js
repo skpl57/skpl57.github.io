@@ -93,5 +93,18 @@ $(document).ready(
                     $(".ob2").animate({"opacity":"1"},500);
             }
         );
+        $(".ob3").click(
+            function(){
+                $(".ob3").animate({"opacity":"0"},500);
+                $("#big_polska").fadeIn(500);
+            }
+        );
+        //województwa
+        $("#kujawsko_pomorskie").click(
+            function(){
+                $("#big_polska").animate({"left":"25%","margin-left":"0"},200)
+                $(".ob2").fadeOut(200)
+            }
+        )
     }
 );

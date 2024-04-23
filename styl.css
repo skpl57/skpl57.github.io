@@ -116,6 +116,7 @@ article{
     filter: drop-shadow(2px 7px 10px black);
     background-position-x: 4vh;
 }
+#big_polska{display: none; position: absolute; top: 50%; margin-top: -22.5vh; left: 50%; margin-left: -23.5vh; filter: drop-shadow(3px 2px 10px black);}
 #big_godlo{background-position-x: 0; width: 46.3vh; height: 54.9vh; position: absolute; background-size: contain; background-repeat: no-repeat; top: 50%; margin-top: -27.5vh; left: 50%; margin-left: -23vh; filter: drop-shadow(3px 2px 10px black); border-radius: 15px; display: none;}
 /*-----------------------------------------FOOTER-----------------------*/
 footer{
