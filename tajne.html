@@ -10,8 +10,8 @@
         body{overflow: hidden;}
         *{margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; box-shadow: 8px 8px 19px 0px rgba(66, 68, 90, 1);}
         #ramka{width: 100vw; height: 100vh;}
-        #waz,#kran,#dis,#strzala,#knefle{box-shadow: none;}
-        #knefle{display: flex; width: 100vw; height: 200px; position: absolute; top: 50%;margin-top: -100px; justify-content: space-around;}
+        #waz,#kran,#dis,#strzala,.knefle{box-shadow: none;}
+        .knefle{display: flex; width: 100vw; height: 200px; position: absolute; top: 50%;margin-top: -100px; justify-content: space-around;}
         #g1,#g2,#g3,#g4,#g5{overflow: hidden; width: 200px; height:200px; border: 0.5vh solid black; border-radius: 50vh; display: flex; justify-content: center; align-items: center; font-size: 65px; color:  white; z-index: 2; text-shadow: 5px 0px 0px black;}
         #g5{background-color: rgb(70, 219, 70);}
         #g4{background-color: coral; position: relative; top: -600px;}
@@ -37,9 +37,10 @@
             90%{left: 69.2%; top: 82%;transform: rotate(-45deg);}
             100%{left: 69.2%; top: -100%;}         
         }
-        #puste{overflow: hidden; width: 200px; height:200px; border: 0.5vh solid black; border-radius: 50vh;z-index: 3; position: absolute; left: 23.7%; top: 50%; margin-top: -100px; background-color: white;}
+        .puste{width: 200px; height: 200px; border-radius: 20vh; z-index: 1; opacity: 0;}
+        .p2{background-color: white; z-index: 3; border: 0.5vh solid black; opacity: 1;}
         #kran{ width: 100px; height: 100px; background-image: url("kran.png"); background-size: contain; background-repeat: no-repeat; position: absolute; top: 60%;}
-        #waz{ background-repeat: no-repeat; background-image: url(wasz.png); width: 470px; height: 50px; background-size: contain; transform: rotate(120deg); position: absolute; top: 110%;}
+        #waz{ background-repeat: no-repeat; background-image: url(wasz.png); width: 470px; height: 50px; background-size: contain; transform: rotate(110deg); position: absolute; top: 110%;}
         #strzala{ width: 30px; height: 30px; background-image: url("st.png"); background-size: contain; background-repeat: no-repeat; filter: drop-shadow(5px 5px 5px black); position: absolute; top: 85%; left: 75%;}
         #dis{ background-image: url("dis.png"); width: 100px; height: 100px; position: absolute; top: 80%; background-size: contain; filter: drop-shadow(5px 5px 5px black); left: 67%;}
         #zawias{position: relative; background-color: goldenrod; width: 10px; height: 20px; top: -45px; border-radius: 0px 15px 0px 0px;}
@@ -51,14 +52,20 @@
             <div id="klamka"></div>
             <div id="zawias"></div>
         </div>
-        <div id="knefle">
+        <div class="knefle k1">
             <div id="g1">1</div>
             <div id="g2">2</div>
             <div id="g3">3</div>
             <div id="g4">4</div>
             <div id="g5">5</div>
         </div>
-        <div id="puste"></div>
+        <div class="knefle k2">
+            <div class="puste"></div>
+            <div class="puste p2"></div>
+            <div class="puste"></div>
+            <div class="puste"></div>
+            <div class="puste"></div>
+        </div></div>
         <div id="waz"></div>
         <div id="strzala"></div>
         <div id="dis"></div>

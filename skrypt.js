@@ -100,10 +100,38 @@ $(document).ready(
             }
         );
         //województwa
+        let tekst=false
         $("#zachodnio_pomorskie").click(
             function(){
-                $("#big_polska").animate({"left":"25%","margin-left":"0"},200)
+                if(tekst==false){
+                    $("#woj_ramka").fadeIn(0);
+                    $("#tlo_woj").fadeIn(0).animate({"right":"0vw"},500);
+                    $(".w1").fadeIn(0);
+                    $("#big_polska").animate({"left":"15%","margin-left":"0"},500);
+                    tekst=true}
+                else{
+                    $("#tlo_woj").animate({"right":"-50vw"},500);
+                    $(".tresc").delay(500).fadeOut(0);
+                    $(".w1").delay(500).fadeIn(0);
+                    $("#tlo_woj").delay(700).animate({"right":"0vw"},500);
+                }
             }
-        )
+        );
+        $("#slaskie").click(
+            function(){
+                if(tekst==false){
+                    $("#woj_ramka").fadeIn(0);
+                    $("#tlo_woj").fadeIn(0).animate({"right":"0vw"},500);
+                    $(".w8").fadeIn(0);
+                    $("#big_polska").animate({"left":"15%","margin-left":"0"},500);
+                    tekst=true}
+                else{
+                    $("#tlo_woj").animate({"right":"-50vw"},500);
+                    $(".tresc").delay(500).fadeOut(0);
+                    $(".w8").delay(500).fadeIn(0);
+                    $("#tlo_woj").delay(700).animate({"right":"0vw"},500);
+                }
+            }
+        );
     }
 );

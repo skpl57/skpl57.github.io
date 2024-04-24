@@ -123,7 +123,7 @@ $(document).ready(
         $("#kran").click(
             function(){
                 if(waz==true){
-                    $("#puste").fadeOut(2000);
+                    $(".puste").fadeOut(2000);
                     $("#waz").delay(2500).animate({"top":"110%","left":"0%"},2000).fadeOut(1000);
                     $("#kran").delay(4500).fadeOut(1000);
                 }
