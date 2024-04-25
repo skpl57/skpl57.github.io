@@ -190,6 +190,13 @@ footer{
 
 #woj_ramka{width: 45vw; height: 75vh; position: absolute; top: 10vh; right: 5vw; overflow: hidden; z-index: 3; display: none;}
 #tlo_woj{background-color: rgba(0, 0, 0, 0.452);width: 45vw; height: 75vh; position: absolute; right: -50vw; border-radius: 2vw; border: 0.2vh solid black;}
-.tresc{background-color: rgb(228, 228, 228);  width: 40vw; height: 70vh; position: absolute; top: 2.5vh; right: 2.5vw; border-radius: 1.2vw; border: 0.3vh solid black; display: none;}
+.tresc{background-color: rgb(228, 228, 228);  width: 40vw; height: 70vh; position: absolute; top: 2.5vh; right: 2.5vw; border-radius: 1.2vw; border: 0.3vh solid black; display: none; padding: 4vh;}
 #polski_key{width: 10vw; height: 5vh; background-color: rgb(228, 228, 228);  position: absolute; top: 80%; left: 50%; margin-left: -5vw; border-radius: 2vh; border: 2px solid black; display: flex; justify-content: center; align-items: center; opacity: 0;}
 
+.woj_zdj{display: flex; justify-content: center; align-items: center; margin-top: 4vh;}
+.woj_flaga{width: 9.2vw; height: 6vw; border: 2px solid black;}
+.woj_herb{width: 5vw; height: 6vw;}
+.podpisy{font-weight: bolder;}
+.nazwa_woj{position: relative; left: 38%; font-weight: bolder; margin-bottom: 1vh;}
+#warmin_flaga{width: 9.2vw; height: 6vw;}
+#wielko_flaga{width: 9.2vw; height: 6vw;}

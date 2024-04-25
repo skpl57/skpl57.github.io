@@ -39,14 +39,55 @@
         }
         .puste{width: 200px; height: 200px; border-radius: 20vh; z-index: 1; opacity: 0;}
         .p2{background-color: white; z-index: 3; border: 0.5vh solid black; opacity: 1;}
-        #kran{ width: 100px; height: 100px; background-image: url("kran.png"); background-size: contain; background-repeat: no-repeat; position: absolute; top: 60%;}
+        #kran{width: 100px; height: 100px; background-image: url("kran.png"); background-size: contain; background-repeat: no-repeat; position: absolute; top: 60%;}
         #waz{ background-repeat: no-repeat; background-image: url(wasz.png); width: 470px; height: 50px; background-size: contain; transform: rotate(110deg); position: absolute; top: 110%;}
         #strzala{ width: 30px; height: 30px; background-image: url("st.png"); background-size: contain; background-repeat: no-repeat; filter: drop-shadow(5px 5px 5px black); position: absolute; top: 85%; left: 75%;}
         #dis{ background-image: url("dis.png"); width: 100px; height: 100px; position: absolute; top: 80%; background-size: contain; filter: drop-shadow(5px 5px 5px black); left: 67%;}
         #zawias{position: relative; background-color: goldenrod; width: 10px; height: 20px; top: -45px; border-radius: 0px 15px 0px 0px;}
+        #strona_1,#strona_2{width: 100vw; height: 100vh; overflow: hidden;}
+        #strona_2{position: absolute; top: 100vh; background-color: rgb(228, 228, 228); z-index: 5; border: 5px; border: 10px double red; border-radius: 3px;}
+        .mini{ 
+            box-shadow: none;
+            width: fit-content;
+            margin: auto;
+        }
+        #m1,#m2,#m3,#m4,#m5,#m6,#m7,#m8{
+            box-shadow: 7px 7px 10px black;
+            width: 16vw;
+            height: 9vw;
+            margin: 1vw;
+            border-radius: 15px;
+            border: 1px solid black;
+            transition: 0.5s;
+        }
+        #d1,#d2,#d3,#d4,#d5,#d6,#d7,#d8{
+            box-shadow: 7px 7px 10px black;
+            border-radius: 15px;
+            border: 1px solid black;
+            display: none;
+            position: absolute;
+            width: 48vw;
+            height: 27vw;
+            top: 11vw;
+            left: 50%;
+            margin-left: -24vw;
+        }
+        .m2{position: absolute; top: 75vh; left: 13vw;}
+        #m1:hover,#m2:hover,#m3:hover,#m4:hover,#m5:hover,#m6:hover,#m7:hover,#m8:hover{transform: scale(1.1)}
+        .bez_bordera{animation: 0.5s bez_bordera forwards linear ;}
+        @keyframes bez_bordera {
+            from{border: 10px double red;}
+            to{border: none;}
+        }
+        .border{animation: 0.5s border forwards linear ;}
+        @keyframes border {
+            from{border: none;}
+            to{border: 10px double red;}
+        }
     </style>
 </head>
 <body>
+    <div id="strona_1">
     <div id="ramka">
         <div id="klapa">
             <div id="klamka"></div>
@@ -65,12 +106,35 @@
             <div class="puste"></div>
             <div class="puste"></div>
             <div class="puste"></div>
-        </div></div>
+        </div>
+    </div>
         <div id="waz"></div>
         <div id="strzala"></div>
         <div id="dis"></div>
         <div id="kran"></div>
         <div id="kod">Otwórz</div>
+            <div id="strona_2">
+                <div class="mini m1">
+                    <img src="reksio.jpg" id="m1">
+                    <img src="reksio_2.jpg" id="m2">
+                    <img src="reksio_3.jpg" id="m3">
+                    <img src="reksio_4.jpg" id="m4">
+                </div>
+                <div class="mini m2">
+                    <img src="kotF.jpg" id="m5">
+                    <img src="kotF_2.jpg" id="m6">
+                    <img src="kozioł.jpg" id="m7">
+                    <img src="kozioł_2.jpg" id="m8">
+                </div>
+                    <img src="reksio.jpg" id="d1">
+                    <img src="reksio_2.jpg" id="d2">
+                    <img src="reksio_3.jpg" id="d3">
+                    <img src="reksio_4.jpg" id="d4">
+                    <img src="kotF.jpg" id="d5">
+                    <img src="kotF_2.jpg" id="d6">
+                    <img src="kozioł.jpg" id="d7">
+                    <img src="kozioł_2.jpg" id="d8">
+            </div>
     </div>
 </body>
 </html>

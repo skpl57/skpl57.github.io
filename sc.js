@@ -130,5 +130,75 @@ $(document).ready(
                     else{(this).fadeOut(200)}
             }
         );
+        //Druga Strona
+        $("#kod").click(
+            function(){
+                $("#strona_2").animate({"top":"0"},1500)
+            }
+        );
+        $("#m1").click(
+            function(){
+                $("#d2,#d3,#d4,#d5,#d6,#d7,#d8").fadeOut(250);
+                $("#d1").delay(250).fadeToggle(500);
+            }
+        );
+        $("#m2").click(
+            function(){
+                $("#d1,#d3,#d4,#d5,#d6,#d7,#d8").fadeOut(250);
+                $("#d2").delay(250).fadeToggle(500);
+            }
+        );
+        $("#m3").click(
+            function(){
+                $("#d1,#d2,#d4,#d5,#d6,#d7,#d8").fadeOut(250);
+                $("#d3").delay(250).fadeToggle(500);
+            }
+        );
+        $("#m4").click(
+            function(){
+                $("#d1,#d2,#d3,#d5,#d6,#d7,#d8").fadeOut(250);
+                $("#d4").delay(250).fadeToggle(500);
+            }
+        );
+        $("#m5").click(
+            function(){
+                $("#d1,#d2,#d3,#d4,#d6,#d7,#d8").fadeOut(250);
+                $("#d5").delay(250).fadeToggle(500);
+            }
+        );
+        $("#m6").click(
+            function(){
+                $("#d1,#d2,#d3,#d4,#d5,#d7,#d8").fadeOut(250);
+                $("#d6").delay(250).fadeToggle(500);
+            }
+        );
+        $("#m7").click(
+            function(){
+                $("#d1,#d2,#d3,#d4,#d5,#d6,#d8").fadeOut(250);
+                $("#d7").delay(250).fadeToggle(500);
+            }
+        );
+        $("#m8").click(
+            function(){
+                $("#d1,#d2,#d3,#d4,#d5,#d6,#d7").fadeOut(250);
+                $("#d8").delay(250).fadeToggle(500);
+            }
+        );
+        let duze=false
+        $("#d1,#d2,#d3,#d4,#d5,#d6,#d7,#d8").click(
+            function(){
+                if(duze==false){
+                    $(this).animate({"width":"100vw","height":"100vh","left":"0%","top":"0%","margin-left":"0"},500);
+                    $("#strona_2").removeClass("border");
+                    $("#strona_2").addClass("bez_bordera");
+                    duze=true;}
+                else{
+                    $(this).animate({"width":"48vw","height":"27vw","left":"50%","top":"11vw","margin-left":"-24vw"},500)
+                    $("#strona_2").removeClass("bez_bordera");
+                    $("#strona_2").addClass("border");
+                    duze=false
+                }
+            }
+        );
     }
 );
