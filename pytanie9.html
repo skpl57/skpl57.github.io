@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="pytania.css">
+</head>
+<body>
+    <div id="ramka">
+  <h1>Pytanie 9.</h1>
+  <ul>Ile tytułów ma Król:
+    <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 1">3</li></label>
+    <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 2">1</li></label>
+    <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 2">0</li></label>
+    <li><label><input type="radio" name="question1" value="Poprawna odpowiedź">2</li></label>
+  </ul>
+  <button id="next-button">Prześlij odpowiedź</button>
+
+  <script>
+    const nextButton = document.querySelector('#next-button');
+
+    nextButton.addEventListener('click', () => {
+      const question1 = document.querySelector('input[name="question1"]:checked').value;
+
+      if (question1 === 'Poprawna odpowiedź') {
+        window.location.href = 'pytanie10.html';
+        alert('Dobra odpowiedź. Kolejne pytanie. Pytanie gwarantowane!')
+      }
+      else{
+        window.location.href = 'pytania.html'
+        alert('Zła odpowiedź. Smuteg')
+      }
+    });
+  </script>
+  </div>
+</body>
+</html>

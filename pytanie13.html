@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="pytania.css">
+</head>
+<body>
+    <div id="ramka">
+  <h1>Pytanie 13.</h1>
+  <ul>Jaka była pierwsza mapa na której razem graliśmy w CHICKEN HORSE:
+    <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 1">Farma</li></label>
+    <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 2">Stary domek</li></label>
+    <li><label><input type="radio" name="question1" value="Poprawna odpowiedź">Dach</li></label>
+    <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 2">Piramida</li></label>
+  </ul>
+  <button id="next-button">Prześlij odpowiedź</button>
+
+  <script>
+    const nextButton = document.querySelector('#next-button');
+
+    nextButton.addEventListener('click', () => {
+      const question1 = document.querySelector('input[name="question1"]:checked').value;
+
+      if (question1 === 'Poprawna odpowiedź') {
+        window.location.href = ' pytanie14.html';
+        alert('Dobra odpowiedź. Kolejne pytanie.')
+      }
+      else{
+        window.location.href = 'pytanie10.html'
+        alert('Zła odpowiedź. Smuteg')
+      }
+    });
+  </script>
+  </div>
+</body>
+</html>
