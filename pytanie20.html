@@ -4,34 +4,62 @@
     <meta charset="UTF-8">
     <title>Quiz</title>
     <link rel="stylesheet" href="pytania.css">
+    <link rel="icon" href="znak.png">
+    <style>
+        #kod {
+            opacity: 0;
+            position: absolute;
+            width: 20vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            top: 25%;
+            left: 50%;
+            margin-left: -10vw;
+            transition: opacity 0.5s;
+        }
+        p {font-size: 8vw;}
+        h1 {margin: 0;}
+    </style>
 </head>
 <body>
     <div id="ramka">
-  <h1>Pytanie 20.</h1>
-  <ul>Kiedy się pierwszy raz spotkaliśmy poza szkołą:
-    <li><label><input type="radio" name="question1" value="Poprawna odpowiedź">29.10.23</li></label>
-    <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 1">24.10.23</li></label>
-    <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 2">20.10.23</li></label>
-    <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 2">27.10.23</li></label>
-  </ul>
-  <button id="next-button">Prześlij odpowiedź</button>
+        <h1>Pytanie 20.</h1>
+        <ul>Kiedy się pierwszy raz spotkaliśmy poza szkołą:
+            <li><label><input type="radio" name="question1" value="Poprawna odpowiedź">29.10.23</label></li>
+            <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 1">24.10.23</label></li>
+            <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 2">20.10.23</label></li>
+            <li><label><input type="radio" name="question1" value="Niepoprawna odpowiedź 2">27.10.23</label></li>
+        </ul>
+        <button id="next-button">Prześlij odpowiedź</button>
+    </div>
+    <div id="kod">
+        <h1>Oto druga cyfra kodu:</h1>
+        <p>4</p>
+    </div>
+    
+    <script>
+        const nextButton = document.querySelector('#next-button');
 
-  <script>
-    const nextButton = document.querySelector('#next-button');
+        nextButton.addEventListener('click', () => {
+            const selectedOption = document.querySelector('input[name="question1"]:checked');
+            if (selectedOption) {
+                const answer = selectedOption.value;
 
-    nextButton.addEventListener('click', () => {
-      const question1 = document.querySelector('input[name="question1"]:checked').value;
-
-      if (question1 === 'Poprawna odpowiedź') {
-        window.location.href = ' .html';
-        alert('Brawo! Jednak jakąś wiedze masz na nasz temat i gier hah <333')
-      }
-      else{
-        window.location.href = 'pytanie10.html'
-        alert('Zła odpowiedź. Smuteg, zawiodłem się :(')
-      }
-    });
-  </script>
-  </div>
+                if (answer === 'Poprawna odpowiedź') {
+                    alert('Brawo! Jednak jakąś wiedze masz na nasz temat i gier hah <333');
+                    document.getElementById('ramka').style.display = 'none';
+                    const kodDiv = document.getElementById('kod');
+                    kodDiv.style.opacity = 1;
+                } else {
+                    alert('Zła odpowiedź. Smuteg, zawiodłem się :(');
+                    window.location.href = 'pytanie10.html';
+                }
+            } else {
+                alert('Proszę wybierz odpowiedź.');
+            }
+        });
+    </script>
 </body>
 </html>
