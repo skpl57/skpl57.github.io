@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="zamek.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Zamek</title>
+</head>
+<body>
+    <div id="ramka"></div>
+    <div id="napis">Brawo udało Ci się ukończyć wszystkie zagadki. <br>
+        P.S. Otwórz szufladę z biurka.</div>
+    <div id="drzwi"><img src="drzwi1.png" id="zdj_drzwi"></div>
+    <div id="zamek"><img src="kłódka.png"></div>
+    <div id="kod">
+        <h1>Wpisz Kod:</h1>
+        <input type="text" name="pin" id="kodek" maxlength="4" required placeholder="0000">
+        <button id="next-button">Otwórz</button>
+    </div>
+    <script>
+        const nextButton = document.querySelector('#next-button');
+
+        nextButton.addEventListener('click', () => {
+            const pin = document.getElementById('kodek').value;
+
+            if (pin === '0412') {
+                alert('Dobry kod. Kłódka została otwrta!!!');
+                document.getElementById('zamek').style.display = 'none';
+                document.getElementById('kod').style.display = 'none';
+                document.getElementById('zdj_drzwi').setAttribute('src', 'drzwi.png');
+                $("#drzwi").delay(1500).fadeOut(500);
+                $("#ramka").delay(1500).fadeIn(500);
+                $("#napis").delay(1500).queue(function(next) {
+                    $(this).css('opacity', '1');
+                    next();
+                });
+            } 
+            else {
+                alert('Kłótka się nie rusza...');
+            }
+        });
+    </script>
+</body>
+</html>
