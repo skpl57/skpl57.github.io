@@ -1,0 +1,108 @@
+*{margin: 0; padding: 0; box-sizing: border-box; font-size: 2.4vh; text-decoration: none; font-family: Comic Sans MS, Comic Sans, cursive; text-decoration: none; color: white;}
+
+#ramka{
+    display: flex; 
+    overflow: hidden; 
+    width: 100vw; height: 100vh;
+    background-color: cornflowerblue;
+    position: absolute;
+}
+
+#ikonki{
+    position: absolute;
+    display: flex; flex-direction: column; justify-content: space-around; align-items: center;
+    height: 100vh; width: 9vw;
+    z-index: 5;
+    background-color: rgba(71, 71, 71, 0.6);
+    border-right: black 0.3vh solid;
+    transform:translateX(-8vw); transition: 0.5s;
+}
+#ikonki:hover{
+    transform:translateX(0vw);
+}
+
+#ikonki img{
+    filter: drop-shadow(3px 3px 8px black);
+    width: 5vw; height: 5vw;
+}
+
+.kontener{
+    position: absolute;
+    left: 20%;
+    top: 15%;
+    padding: 1.5vh 1vw 2.5vh 1vw;
+    width: 60vw;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+    border-radius: 0.5vw;
+}
+.img_big{
+    margin-right: 0.5vw;
+    float: left;
+    background-size: cover;
+    width: 45vw;
+    height: 23vw;
+    border: 0.15vw solid black;
+}
+.opis{
+    text-align: center;
+    text-shadow: 5px 0px 4px rgb(0, 0, 0);
+    color: white;
+    padding: 2vh;
+}
+.mini{
+    border: 0.15vw solid black;
+    position: relative;
+    padding: 0.5vw;
+    background-color: rgba(0, 0, 0, 0.24);
+    width: 45vw;
+    clear: both;
+    display: flex;
+    top: 1vh;
+    justify-content: space-around;
+    align-items: center;
+}
+.download{
+    background-color: cornflowerblue;
+    border-radius: 15vw;
+    border: 0.15vw solid black;
+    display: flex;
+    text-shadow: 3px 0px 4px rgb(0, 0, 0);
+    font-size: 3vh;
+    justify-content: center;
+    align-items: center;
+}
+.obrazki{
+    border: 0.15vw solid black;
+    width: 9vw;
+    height: 5.5vw;
+    background-size: cover;
+}
+.stone{top: 115%;}
+.img_stone{background-image: url(stone_1.png);}
+.ob5{background-image: url(stone_1.png);}
+.ob6{background-image: url(stone_2.png);}
+
+
+
+.rycerz{top: -75%}
+.img_rycerz{background-image: url(rycerz_1.png);}
+.ob1{background-image: url(rycerz_1.png);}
+.ob2{background-image: url(rycerz_2.png);}
+.ob3{background-image: url(rycerz_3.png);}
+.ob4{background-image: url(rycerz_4.png);}
+
+#napis{
+    position: absolute;
+    text-shadow: 5px 0px 4px rgb(0, 0, 0);
+    font-size: 4vw;
+    width: 30vw;
+    text-align: center;
+    top: 25%;
+    left: 35%;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1vw;
+    border-radius: 1vw;
+    border: 0.2vw solid black;
+}
