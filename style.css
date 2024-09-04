@@ -107,7 +107,7 @@
     border-radius: 1vw;
     border: 0.2vw solid black;
 }
-#strzalka{
+#arrow{
     position: absolute;
     top: 0;
     height: 100vh;
