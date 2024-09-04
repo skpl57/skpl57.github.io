@@ -12,13 +12,14 @@
     position: absolute;
     display: flex; flex-direction: column; justify-content: space-around; align-items: center;
     height: 100vh; width: 9vw;
-    z-index: 5;
+    z-index: 5; 
     background-color: rgba(71, 71, 71, 0.6);
-    border-right: black 0.3vh solid;
-    transform:translateX(-8vw); transition: 0.5s;
+    
+    transform:translateX(-9vw); transition: 0.5s;
 }
+
 #ikonki:hover{
-    transform:translateX(0vw);
+    transform: translateX(0vw);
 }
 
 #ikonki img{
@@ -105,4 +106,18 @@
     padding: 1vw;
     border-radius: 1vw;
     border: 0.2vw solid black;
+}
+#strzalka{
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    background-color: rgba(71, 71, 71, 0.6);
+    width: 2vw;
+    left: 9vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: black 0.3vh solid;
+    font-size: 3.5vw;
+    text-shadow: 3px 0px 4px rgb(0, 0, 0);
 }
