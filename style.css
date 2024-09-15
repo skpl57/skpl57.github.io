@@ -80,20 +80,6 @@
     height: 5.5vw;
     background-size: cover;
 }
-.stone{top: 115%;}
-.img_stone{background-image: url(stone_1.png);}
-.ob5{background-image: url(stone_1.png);}
-.ob6{background-image: url(stone_2.png);}
-
-
-
-.rycerz{top: -75%}
-.img_rycerz{background-image: url(rycerz_1.png);}
-.ob1{background-image: url(rycerz_1.png);}
-.ob2{background-image: url(rycerz_2.png);}
-.ob3{background-image: url(rycerz_3.png);}
-.ob4{background-image: url(rycerz_4.png);}
-
 #napis{
     position: absolute;
     text-shadow: 5px 0px 4px rgb(0, 0, 0);
@@ -121,3 +107,19 @@
     font-size: 3.5vw;
     text-shadow: 3px 0px 4px rgb(0, 0, 0);
 }
+
+.stone{top: 115%;}
+.img_stone{background-image: url(stone_1.png);}
+.ob5{background-image: url(stone_1.png);}
+.ob6{background-image: url(stone_2.png);}
+
+
+
+.rycerz{top: -75%}
+.img_rycerz{background-image: url(rycerz_1.png);}
+.ob1{background-image: url(rycerz_1.png);}
+.ob2{background-image: url(rycerz_2.png);}
+.ob3{background-image: url(rycerz_3.png);}
+.ob4{background-image: url(rycerz_4.png);}
+
+.rat{left: 100%;}

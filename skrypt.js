@@ -9,8 +9,9 @@ $(document).ready(
                     $("#napis").fadeOut(300)
                 }
                 else{
-                    $(".stone").animate({"top":"115%"},500);
                     $(".rycerz").animate({"top":"15%"},500);
+                    $(".stone").animate({"top":"115%"},500);
+                    $(".rat").animate({"left":"100%"},400);
                 }
             }
                 );
@@ -24,6 +25,21 @@ $(document).ready(
                 else{
                     $(".rycerz").animate({"top":"-75%"},500);
                     $(".stone").animate({"top":"15%"},500);
+                    $(".rat").animate({"left":"100%"},400);
+                }
+            }
+        );
+        $("#rat_icon").click(
+            function(){
+                if(open == false){
+                    $(".rat").animate({"left":"20%"},400);
+                    $("#napis").fadeOut(300)
+                    open = true
+                }
+                else{
+                    $(".rycerz").animate({"top":"-75%"},500);
+                    $(".stone").animate({"top":"115%"},500);
+                    $(".rat").animate({"left":"20%"},800);
                 }
             }
         );
