@@ -108,13 +108,6 @@
     text-shadow: 3px 0px 4px rgb(0, 0, 0);
 }
 
-.stone{top: 115%;}
-.img_stone{background-image: url(stone_1.png);}
-.ob5{background-image: url(stone_1.png);}
-.ob6{background-image: url(stone_2.png);}
-
-
-
 .rycerz{top: -75%}
 .img_rycerz{background-image: url(rycerz_1.png);}
 .ob1{background-image: url(rycerz_1.png);}
@@ -122,4 +115,17 @@
 .ob3{background-image: url(rycerz_3.png);}
 .ob4{background-image: url(rycerz_4.png);}
 
+
+.stone{top: 115%;}
+.img_stone{background-image: url(stone_1.png);}
+.ob5{background-image: url(stone_1.png);}
+.ob6{background-image: url(stone_2.png);}
+
+
+
+
 .rat{left: 100%;}
+.img_rat{background-image: url(szczur_1.png);}
+.ob7{background-image: url(szczur_1.png);}
+.ob8{background-image: url(szczur_2.png);}
+.ob9{background-image: url(szczur_3.png);}

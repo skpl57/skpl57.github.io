@@ -32,7 +32,7 @@ $(document).ready(
         $("#rat_icon").click(
             function(){
                 if(open == false){
-                    $(".rat").animate({"left":"20%"},400);
+                    $(".rat").animate({"left":"20%"},500);
                     $("#napis").fadeOut(300)
                     open = true
                 }
@@ -51,6 +51,8 @@ $(document).ready(
         $(".ob5").click(function(){$(".img_stone").css({"background-image":" url(stone_1.png)"},1500);});
         $(".ob6").click(function(){$(".img_stone").css({"background-image":" url(stone_2.png)"},1500);});
 
-
+        $(".ob7").click(function(){$(".img_rat").css({"background-image":" url(szczur_1.png)"},1500);});
+        $(".ob8").click(function(){$(".img_rat").css({"background-image":" url(szczur_2.png)"},1500);});
+        $(".ob9").click(function(){$(".img_rat").css({"background-image":" url(szczur_3.png)"},1500);});
     }
 );
