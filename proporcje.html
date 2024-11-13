@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pole{
+            text-align: center;
+            margin-top: 5px;
+        }
+        h2{
+            margin: 0;
+            margin-left: 110px;
+        }
+        #t2{
+            margin: 0;
+            margin-left: 70px;
+        }
+
+        #ramka{
+            position: absolute;
+            left: 35%;
+            top: 35%;
+            transform: scale(2);
+        }
+    </style>
+</head>
+<body>
+    <div id="ramka">
+        <h2>Proporcjonalne</h2>
+        <input type="text" class="pole p1"> = 
+        <input type="text" class="pole p2"><br>
+        <input type="text" class="pole px" readonly value="x"> = 
+        <input type="text" class="pole p3"><br><br><br>
+
+
+        <h2 id="t2">Odwrotnie proporcjonalne</h2>
+        <input type="text" class="pole i1"> = 
+        <input type="text" class="pole i2"><br>
+        <input type="text" class="pole ix" readonly value="x"> = 
+        <input type="text" class="pole i3"><br><br><br>
+    </div>
+    <script>
+        const p1 = document.querySelector(".p1");
+        const p2 = document.querySelector(".p2");
+        const px = document.querySelector(".px");
+        const p3 = document.querySelector(".p3");
+
+        const i1 = document.querySelector(".i1");
+        const i2 = document.querySelector(".i2");
+        const ix = document.querySelector(".ix");
+        const i3 = document.querySelector(".i3");
+
+        p1.addEventListener("input", liczenie_proporcja);
+        p2.addEventListener("input", liczenie_proporcja);
+        p3.addEventListener("input", liczenie_proporcja);
+
+        i1.addEventListener("input", liczenie_odw_proporcji);
+        i2.addEventListener("input", liczenie_odw_proporcji);
+        i3.addEventListener("input", liczenie_odw_proporcji);
+
+        function liczenie_proporcja(){
+            let x = (p1.value * p3.value) / p2.value;
+            if(p1.value != "" && p2.value != "" && p3.value != ""){  
+                if(isNaN(x) == true){
+                    px.value = 0;
+                    px.style.backgroundColor = "red";
+                }
+                else{
+                    px.value = x.toFixed(2);
+                    px.style.backgroundColor = "";
+                }
+            }
+            else{
+                px.value = "x"
+            }
+        }
+
+        function liczenie_odw_proporcji(){
+            let x = (i1.value*i2.value)/i3.value;
+            if(i1.value != "" && i2.value != "" && i3.value != ""){  
+                if(isNaN(x) == true){
+                    ix.value = 0;
+                    ix.style.backgroundColor = "red";
+                }
+                else{
+                    ix.value = x.toFixed(2);
+                    ix.style.backgroundColor = "";
+                }
+            }
+            else{
+                ix.value = "x"
+            }            
+        }
+       
+    </script>
+</body>
+</html>
