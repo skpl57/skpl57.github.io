@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiszki</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+        }
+        #language{
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+            gap: 30px;
+            margin: auto;
+            margin-top: 20px;
+        }
+        .jezyki{
+            width: fit-content;
+            font-size: 1.8vw;
+            padding: 5px;
+            border-bottom: 2px solid black;
+            color: white;
+            text-shadow: 1.5px 1.5px 0px rgba(66, 68, 90, 1);
+        }
+        #angielski{
+            background-color: crimson;
+        }
+        #niemiecki{
+            background-color: goldenrod;
+        }
+
+        #kontener{
+            display: flex;
+            gap: 10%;
+            flex-direction: row;
+            width: 100%;
+            height: fit-content;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 0;
+        }
+
+        
+        #bledne{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 10%;
+            padding: 7px 5px 7px 5px;
+            height: fit-content;
+            color: rgb(99, 10, 28);
+            background-color: crimson;
+            border: 1px solid rgb(104, 10, 29);
+            border-radius: 5%;
+        }
+        #poprawne{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 10%;
+            padding: 7px 5px 7px 5px;
+            height: fit-content;
+            color: rgb(112, 167, 31);
+            background-color: greenyellow;
+            border: 1px solid rgb(90, 134, 25);
+            border-radius: 5%;
+        }
+
+
+        
+        #fiszka{
+            width: 400px;
+            height: 400px;
+            
+            font-size: 2vw;
+            transform-style: preserve-3d;
+            transition: 0.75s;
+        }
+
+        .tresc{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            backface-visibility: hidden;
+            position: absolute;
+            border-radius: 5%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+        }
+        .ob{
+            transform: rotateY(180deg);
+            background-color: rgba(66, 68, 90, 1);
+            color: white;
+        }
+        
+        
+        .flipped {
+            transform: rotateY(180deg);
+        }
+
+        #wpisywanie{
+            font-size: 2vw;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0 10px 0 10px;
+            text-align: center;
+        }
+        
+        #tryb{
+            width: fit-content;
+            padding: 10px;
+            position: absolute;
+            border-radius: 5%;
+        }
+        .wylaczone{
+            color: rgb(99, 10, 28);
+            background-color: crimson;
+            border: 1px solid rgb(104, 10, 29);
+        }
+        .wlaczone{
+            color: rgb(112, 167, 31);
+            background-color: greenyellow;
+            border: 1px solid rgb(90, 134, 25);
+        }
+        #odpowiedz{
+            position: absolute;
+            width: fit-content;
+            height: fit-content;
+            padding: 10px;
+            top: 90%;
+            left: 70%;
+            background-color: white;
+            color: cornflowerblue;
+            border: 2px solid black;
+            border-radius: 15px;
+            transform: translate(-50%, -50%);
+        }
+        .zle{
+            color: crimson;
+            text-shadow: 1.5px 1.5px 0px rgba(66, 68, 90, 1);
+        }
+        .dobrze{
+            color: rgb(112, 167, 31);
+            text-shadow: 1.5px 1.5px 0px rgba(66, 68, 90, 1);
+        }
+    </style>
+</head>
+<body onload="dlaFiszki(), zmianaTrybu()">
+    <!-- <div id="language">
+        <div class="jezyki" id="angielski">angielski</div>
+        <div class="jezyki" id="niemiecki">niemiecki</div>
+    </div> -->
+    <div id="kontener">
+        <div id="bledne" onclick="bledneLicznik()">
+            <p>Nieznam: 0</p>
+        </div>
+        
+        <div id="fiszka" >
+            <div class="tresc pl" onclick="obroc()">Język</div>
+            <div class="tresc ob" onclick="obroc()">Language</div>
+        </div>
+        
+        <div id="poprawne" onclick="poprawneLicznik()">
+            <p>Znam: 0</p>
+        </div>
+    </div>
+    <input type="text" id="wpisywanie" disabled>
+
+    <div id="tryb" class="wlaczone" onclick="zmianaTrybu()">Wpisywanie</div>
+    <div id="odpowiedz" onclick="zatwierdzanie()">Zatwierdź</div>
+    <script>
+        const znam = document.querySelector("#poprawne")
+        const nieznam = document.querySelector("#bledne")
+
+        const obcy = document.querySelector(".ob")
+        const polski = document.querySelector(".pl")
+        const fiszka = document.querySelector("#fiszka")
+
+
+        let poprawne = 0;
+        let bledne = 0;
+        let koniec = false;
+        let on = false
+        let dobrzeNapisana = false;
+        let tablicka;
+        function poprawneLicznik(){
+            if(!koniec || !on || dobrzeNapisana){
+                poprawne++;
+                znam.innerHTML = `<p>Znam: ${poprawne}</p>`
+                dlaFiszki()
+            }
+
+        }
+        function bledneLicznik(){
+            if(!koniec || !on || dobrzeNapisana){
+                bledne++;
+                nieznam.innerHTML = `<p>Nieznam: ${bledne}</p>`
+                dlaFiszki()
+            }
+        }
+
+        const input = document.querySelector("#wpisywanie")
+
+        function zmianaTrybu(){
+            document.querySelector("#tryb").classList.toggle("wylaczone")
+            document.querySelector("#tryb").classList.toggle("wlaczone")
+            fiszka.classList.remove("flipped")
+            on = !on
+            input.disabled = on
+            input.value = ""
+        }
+
+        function zatwierdzanie(){
+            if(!on){
+                dobrzeNapisana = true
+                if(input.value != tablicka[0]){
+                    input.classList.add("zle")
+                }
+                else{
+                    input.classList.add("dobrze")
+                }
+                input.disabled = true
+            }
+        }
+
+
+        function dlaFiszki(){
+            let suma = poprawne + bledne
+            if(suma < wordList.length){
+                input.classList.remove("zle")
+                dobrzeNapisana = false;
+                input.value = ""
+
+                if(!on){
+                    input.disabled = false
+                }
+
+                let losowa = Math.floor(Math.random() * wordList.length)
+                tablicka = wordList[losowa]
+                wordList.splice(losowa, 1)
+                if(fiszka.classList.contains("flipped")){
+                    fiszka.classList.remove("flipped")
+                    setInterval(()=>{
+                        obcy.innerHTML = tablicka[0]
+                        polski.innerHTML = tablicka[1]
+                    },250)
+                }
+                else{
+                    obcy.innerHTML = tablicka[0]
+                    polski.innerHTML = tablicka[1]
+                }
+                
+            }
+            else{
+                koniec = true;
+            }
+            
+        }
+
+        let wordList = [
+            ["baker's", "piekarnia"],
+            ["bank", "bank"],
+            ["butcher's", "sklep mięsny"],
+            ["cashier", "kasjer"],
+            ["chain store", "sieciówka"],
+            ["charity shop", "sklep charytatywny"],
+            ["chemist's", "apteka"],
+            ["computer shop", "sklep komputerowy"],
+            ["department store", "dom towarowy"],
+            ["DIY store", "sklep dla majsterkowiczów"],
+            ["fishmonger's", "sklep rybny"],
+            ["florist's", "kwiaciarnia"],
+            ["greengrocer's", "warzywniak"],
+            ["high street", "główna ulica handlowa"],
+            ["jeweller's", "jubiler"],
+            ["get a refund", "dostać zwrot pieniędzy"],
+            ["go shopping", "pójść na zakupy"],
+            ["greengrocer's", "warzywniak"],
+            ["last for ages", "być nie do zdarcia"],
+            ["leather", "skóra"],
+            ["look", "wyglądać"],
+            ["look smart", "wyglądać elegancko"],
+            ["look stylish", "wyglądać stylowo"],
+            ["newsagent's", "kiosk z gazetami"],
+            ["on special offer", "w promocji"],
+            ["optician's", "optyk"],
+            ["pet shop", "sklep zoologiczny"],
+            ["pick up a bargain", "złowić okazję"],
+            ["post office", "poczta"],
+            ["quality", "jakość"],
+            ["shoe shop", "sklep obuwniczy"],
+            ["shopping", "zakupy"],
+            ["sports shop", "sklep sportowy"],
+            ["suit", "garnitur"],
+            ["supermarket", "supermarket"],
+            ["toy shop", "sklep z zabawkami"],
+            ["vintage shop", "sklep z ubraniami z poprzedniej epoki"],
+            ["wool", "wełna"],
+            ["approximately", "około, w przybliżeniu"],
+            ["do the shopping", "robić zakupy"],
+            ["drinking water", "woda pitna"],
+            ["plant", "roślina"],
+            ["set up", "założyć"],
+            ["aisle", "alejka"],
+            ["be in charge of sth", "być odpowiedzialnym za coś"],
+            ["check out", "sprawdzać, kasa (w sklepie)"],
+            ["debt", "dług"],
+            ["earn", "zarabiać"],
+            ["expense", "wydatek"],
+            ["invest", "inwestować"],
+            ["loan", "pożyczka"],
+            ["make sb feel happier", "uszczęśliwiać kogoś"],
+            ["pay", "płacić"],
+            ["payment", "płatność"],
+            ["price", "cena"],
+            ["product", "produkt"],
+            ["produce", "produkować"],
+            ["quality", "jakość"],
+            ["receipt", "paragon"],
+            ["sale", "wyprzedaż"],
+            ["sell", "sprzedawać"],
+            ["toiletries", "artykuły toaletowe"],
+            ["trade", "handel"],
+            ["value", "wartość"],
+            ["account", "rachunek"],
+            ["available", "dostępny"],
+            ["billionaire", "miliarder"],
+            ["bookstore", "księgarnia"],
+            ["checkout", "kasa"],
+            ["complaint", "reklamacja"],
+            ["customer", "klient"],
+            ["delivery", "dostawa"],
+            ["employee", "pracownik"],
+            ["entrepreneur", "przedsiębiorca"],
+            ["household name", "powszechnie znana nazwa"],
+            ["immigrant", "imigrant"],
+            ["increase", "wzrost"],
+            ["order", "zamówienie"],
+            ["passenger", "pasażer"],
+            ["passion", "pasja"],
+            ["queue", "kolejka"],
+            ["request", "prośba, zamówienie"],
+            ["ship", "transportować"],
+            ["suitcase", "walizka"],
+            ["advertising", "reklama"],
+            ["brand", "marka"],
+            ["bill", "rachunek"],
+            ["boss", "szef"],
+            ["high price", "wysoka cena"],
+            ["imagination", "wyobraźnia"],
+            ["idea", "pomysł"],
+            ["be kind of", "kosztować około"],
+            ["market", "rynek"],
+            ["shopping mall", "centrum handlowe"],
+            ["headphones", "słuchawki"],
+            ["hesitate", "wahać się"],
+            ["return", "zwracać"],
+            ["subscribe", "subskrybować"],
+            ["wedding ring", "obrączka"],
+            ["zip", "zamek błyskawiczny"],
+            ["bother", "przeszkadzać"],
+            ["changing room", "przymierzalnia"],
+            ["out of stock", "wyprzedany"],
+            ["ripped", "podarty"],
+            ["suit", "pasować"],
+            ["try on", "przymierzyć"],
+            ["size", "rozmiar"]
+            ];
+        function obroc(){
+            if(on || dobrzeNapisana){
+                document.querySelector("#fiszka").classList.toggle("flipped");
+            }
+        }
+
+    </script>
+</body>
+</html>
