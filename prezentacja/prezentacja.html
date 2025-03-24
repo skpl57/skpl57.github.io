@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prezentacja Bazy Danych Zoo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Comic Sans Ms";
+            font-size: 80px;
+        }
+        /* body{
+            background-image: url(0.jpg);
+            background-size: cover;
+            background-position-y: -40px;
+        } */
+        #tlo {
+            width: 100%;
+            height: 100vh;
+            
+            text-align: center;
+            /* margin: 50px; */
+            background-color: rgb(66, 91, 52);
+            background-image: url(0.jpg);
+            background-size: cover;
+            background-position-y: -40px;
+        }
+        .container {
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+           
+        }
+        .card {
+            background: white;
+            color: rgb(33, 46, 24);
+            margin-left: -150px;
+            /* margin-top: 130px; */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 24px;
+            font-weight: bold;
+            max-width: 680px;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border: rgb(33, 46, 24) solid 10px;
+            visibility: hidden;
+            flex-direction: column;
+        }
+        .arrow {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            /* margin-top: 200px; */
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-size: 44px;
+            user-select: none;
+        }
+        .arrow:hover {
+            background: #ddd;
+        }
+        #head{
+            color: white;
+            background-color: rgb(33, 46, 24);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            padding-bottom: 15px;
+            visibility: visible;
+        }
+       p{
+        color: black;
+        font-size: 25px;
+       }
+        #t1 {
+            font-size: 40px;
+            font-weight: bold;
+        }
+        #t2 {
+            font-size: 25px;
+            text-align: left;
+        }
+        .srodek{
+            font-size: 25px;
+            text-align: center;
+        }
+        #prev{
+            visibility: hidden;
+        }
+        #next{
+            visibility: visible;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div id="tlo">
+        <h1 id="head">Prezentacja Bazy Danych Zoo</h1>
+        <div class="container">
+            <div class="arrow" id="prev">&#9664;</div>
+            <div class="card" id="content"><p id="t1">Jaki jest cel?</p>============================================== <br>
+                <p id="t2">Celem tej bazy <br>danych jest zarządzanie zoo</p></div>
+            <div class="arrow" id="next">&#9654;</div>
+        </div>
+</div>
+
+    <script>
+        const tlo = document.querySelector('#tlo');
+        const head = document.querySelector('#head');
+        const card = document.querySelector('.card');
+        const t1 = document.querySelector('#t1');
+        const t2 = document.querySelector('#t2');
+        const prev = document.querySelector('#prev');
+        const next = document.querySelector('#next');
+        
+        $(document).ready(function() {
+                
+                let text1 = t1 + " " + t2;
+            let texts = [
+                {t1:"", t2: "", showCard: false },
+                {t1:"Cel bazy danych", t2: "<p class='srodek'>Baza danych dla zoo służy do przechowywania i zarządzania informacjami o zwierzętach, pracownikach, wybiegach oraz innych zasobach zoo. Jej korzyściami są m.in.:<p><p class='lewo'>&#8226; pomoc w monitorowaniu różnych wydarzeń dotyczących poszczególnych wybiegów, <br>&#8226; pomaga w organizacji pracy opiekunów, <br>&#8226; pozwala na analizę populacji zwierząt danego gatunku i ich zapotrzebowań <br>&#8226; ułatwia kontrolę nad budżetem i zasobami.</p>", showCard: true },
+                {t1:"Struktura bazy danych ", t2: "<p class='srodek'>Baza danych składa się z kilku głównych tabel takich jak:</p><p class='lewo'>&#8226; zwierze - id_zwierze, imie, rok_ur, gatunek_id, ekspozycja_id <br> &#8226; gatunek - id_gatunek, nazwa, opis, min_liczba, czestotliwosc_karmienia, dzienne_spozycie, jedzenie_id<br>&#8226; ekspozycja - id_ekspozycja, typ, powierzchnia_m2, opiekun_id, biotop_id<br>&#8226 pracownicy - id_pracownicy, imie, nawisko,data_ur, wynagrodzenie, plec, telefon</p>", showCard: true },
+                {t1:"Struktura bazy danych cz.2", t2: "<p class='srodek'>Oraz kilku pomocniczych takich jak:</p><p class='lewo'><br>&#8226; wydarzenia - id_wydarzenia, data, opis, ekspozycja_id<br>&#8226; biotop - id_biotop, nazwa<br>&#8226; jedzenie - id_jedzenie, nazwa, cenaKg</p><br><p class='srodek'>A także zawiera parę widoków, które ułatwiają dostęp do poszczególnych danych</p>", showCard: true },
+                {t1:"Technologie i narzędzia - ich użycie", t2: "<p class='srodek'>Do stworzenia tej bazy danych użyto narzędzi oraz technologii takich jak:</p><br><p class='lewo'>&#8226; Język SQL - do zarządania danymi i tworzenia zapytań <br>&#8226; System zarządzania danych - MySQL<br>&#8226; Interfejs użytkownika – możliwość integracji z aplikacją webową do łatwego zarządzania.</p>", showCard: true },
+                {t1:"Podsumowanie", t2: "<p class='srodek'>Dzięki temu łatwiej jest zarządzać informacjami o zwierzętach, pracownikach i zasobach, a także pozwala na szybkie i łatwe wyszukiwanie danych i generowanie raportów. Wstawianie danych i manipulowanie nimi jest też o wiele łatwiejsze i bezpieczniejsze pod względem wykonywania błędów.</p>", showCard: true },
+                
+                
+
+
+            ];
+            let index = 0;
+            tlo.style.backgroundImage = `url(${index}.jpg)`;
+
+            function updateText() {
+                
+                $(t1).text(texts[index].t1);
+                $(t2).html(texts[index].t2);
+
+                if(index==0){
+                    head.style.visibility = "visible";
+                    card.style.visibility = "hidden";
+                    prev.style.visibility = 'hidden';
+
+                }
+                else if(index==5){
+                    next.style.visibility = 'hidden';
+
+
+                }
+                else{
+                    head.style.visibility = "hidden";
+                    card.style.visibility = "visible";
+                    prev.style.visibility = 'visible';
+                    next.style.visibility = 'visible';
+
+                }
+            }
+            
+            $('#next').click(function() {
+                index = (index + 1) % texts.length;
+                tlo.style.backgroundImage = `url(${index}.jpg)`;
+                updateText();
+            });
+            
+            $('#prev').click(function() {
+                index = (index - 1 + texts.length) % texts.length;
+                tlo.style.backgroundImage = `url(${index}.jpg)`;
+                updateText();
+            });
+            
+        });
+    </script>
+</body>
+</html>
