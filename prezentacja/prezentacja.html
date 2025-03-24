@@ -137,8 +137,7 @@
 
         
         $(document).ready(function() {
-                
-                let text1 = t1 + " " + t2;
+            let text1 = t1 + " " + t2;
             let texts = [
                 {t1:"", t2: "", showCard: false },
                 {t1:"Cel bazy danych", t2: "<p class='srodek'>Baza danych dla zoo służy do przechowywania i zarządzania informacjami o zwierzętach, pracownikach, wybiegach oraz innych zasobach zoo. Jej korzyściami są m.in.:<p><p class='lewo'>&#8226; pomoc w monitorowaniu różnych wydarzeń dotyczących poszczególnych wybiegów, <br>&#8226; pomaga w organizacji pracy opiekunów, <br>&#8226; pozwala na analizę populacji zwierząt danego gatunku i ich zapotrzebowań <br>&#8226; ułatwia kontrolę nad budżetem i zasobami.</p>", showCard: true },
@@ -153,14 +152,14 @@
                 <a href='Gatunki.png' class='zdjecia' target='_blank'>Insert gatunki</a>
                 <a href='podwyżka.png' class='zdjecia' target='_blank'>Update wynagrodzeń</a>
                 <a href='stworzenie widoku zwierząt.png' class='zdjecia' target='_blank'>Widok zwierząt</a>
-                <a href='zmiana pracownika.png' class='zdjecia' target='_blank'>Dodanie unique</a></p>`, showCard: true },
+                <a href='zmiana pracownika.png' class='zdjecia' target='_blank'>Dodanie unique</a>
+                <a href='relacje.png' class='zdjecia' target='_blank'>Relacje</a></p>`, showCard: true },
 
             ];
             let index = 0;
             tlo.style.backgroundImage = `url(${index}.jpg)`;
 
             function updateText() {
-                
                 $(t1).text(texts[index].t1);
                 $(t2).html(texts[index].t2);
 
