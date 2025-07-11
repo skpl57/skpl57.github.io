@@ -34,12 +34,6 @@
             align-items: center;
             flex-direction: column;
         }
-        #a{
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
     </style>
 </head>
 <body>
@@ -77,7 +71,7 @@
                 wynik = 'Wytnij tylko czaszkę <img src="skull.webp"> to będzie 0 <img src="zła.webp" alt="złych"> i ' + (parseInt(d) + 5) +' <img src="dobra.webp" alt="dobrych">'
             }
             else{
-                wynik = '<p>🔥 SPAL 🔥</p> <br> ~Uprzednio wytnij wszystko~'
+                wynik = '<p><b>🔥 SPAL 🔥</b></p>  ~Uprzednio wytnij wszystko~'
             }
             a.innerHTML = wynik;
         }
