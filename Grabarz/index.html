@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #tak{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        img{
+            transform: translateY(25%);
+        }
+        a{
+            color: black;
+            font-style: none;
+            text-decoration: none;
+        }
+        #receptury{
+            border-left: 2px solid black;
+            border-right: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div id="tak">
+        <label>Ilość <img src="zła.webp" alt="złych"> <input type="number" id="z" value="0"></label><br>
+        <label>Ilość <img src="dobra.webp" alt="dobrych"> <input type="number" id="d" value="0"></label><br>
+        <button id="b" onclick="klik()">Sprawdź!</button><br>
+        <div id="a"></div>
+    </div>
+    <div id="receptury">
+        <h3>Linki</h3>
+        <a href="ług.png" target="_blank">Ług (zasada)</a><br>
+        <a href="odnowa.jpg" target="_blank">Odnowa ciała</a><br>
+        <a href="złoto.png" target="_blank">Złoto</a><br>
+        <a href="srebro.jpg" target="_blank">Srebro</a><br>
+        <a href="klej.jpg" target="_blank">Klej</a>
+    </div>
+    <script>
+        function klik(){
+            const d = document.querySelector("#d").value;
+            const z = document.querySelector("#z").value;
+            const a = document.querySelector("#a");
+            let wynik = 0;
+
+            if(z == 3){
+                wynik = 'Wytnij krew <img src="krew.webp">, tłuszcz <img src="fat.webp"> i czaszkę <img src="skull.webp"> to będzie 0 <img src="zła.webp" alt="złych"> i ' + (parseInt(d) + 7) +' <img src="dobra.webp" alt="dobrych">'
+            }
+            else if(z == 4){
+                wynik = 'Wytnij krew <img src="krew.webp"> i tłuszcz <img src="fat.webp"> to będzie 0 <img src="zła.webp" alt="złych"> i ' + (parseInt(d) + 7) +' <img src="dobra.webp" alt="dobrych">'
+            }
+            else if(z == 2){
+                wynik = 'Wytnij krew <img src="krew.webp"> lub tłuszcz <img src="fat.webp"> i czaszkę <img src="skull.webp"> to będzie 0 <img src="zła.webp" alt="złych"> i ' + (parseInt(d) + 6) +' <img src="dobra.webp" alt="dobrych">'
+            }
+            else if(z == 1){
+                wynik = 'Wytnij tylko czaszkę <img src="skull.webp"> to będzie 0 <img src="zła.webp" alt="złych"> i ' + (parseInt(d) + 5) +' <img src="dobra.webp" alt="dobrych">'
+            }
+            else{
+                wynik = '🔥 SPAL 🔥 <br> ~Uprzednio wytnij wszystko~'
+            }
+            a.innerHTML = wynik;
+        }
+    </script>
+</body>
+</html>
